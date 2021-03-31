@@ -27,7 +27,8 @@ public class TestController {
         User[] res = restTemplate.getForObject(url, User[].class);
 
         Result result = new Result();
-        result.setVersion("V1");
+        result.setVersion("V2");
+        result.setDesc("Zeju said this is version 2 api");
         result.setUsers(res == null ? new ArrayList<>() : Arrays.asList(res));
 
         return result;

@@ -6,7 +6,16 @@ import java.util.List;
 public class Result implements Serializable {
 
     private String version;
+    private String desc;
     private List<User> users;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public String getVersion() {
         return version;
