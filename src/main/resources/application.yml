@@ -1,0 +1,6 @@
+server:
+  port: 8206
+
+
+zeju:
+  api: "http://192.168.132.128:30091/test"
