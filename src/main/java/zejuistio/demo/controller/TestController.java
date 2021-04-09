@@ -27,17 +27,10 @@ public class TestController {
         User[] res = restTemplate.getForObject(url, User[].class);
 
         Result result = new Result();
-        result.setVersion("V2");
-        result.setDesc("Zeju said this is version 2 api");
+        result.setVersion("V1");
         result.setUsers(res == null ? new ArrayList<>() : Arrays.asList(res));
 
         return result;
-    }
-
-    @GetMapping("/timeout")
-    public String timeout() throws InterruptedException {
-        Thread.sleep(5 * 1000L);
-        return "Success";
     }
 
 }
