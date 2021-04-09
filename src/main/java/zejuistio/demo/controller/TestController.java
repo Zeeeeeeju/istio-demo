@@ -34,4 +34,10 @@ public class TestController {
         return result;
     }
 
+    @GetMapping("/timeout")
+    public String timeout() throws InterruptedException {
+        Thread.sleep(5 * 1000L);
+        return "Success";
+    }
+
 }
