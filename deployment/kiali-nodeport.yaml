@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-04-02T16:55:00Z"
+  labels:
+    app: kiali
+    app.kubernetes.io/instance: kiali-server
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kiali
+    app.kubernetes.io/version: v1.26.0
+    helm.sh/chart: kiali-server-1.26.0
+    version: v1.26.0
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kiali.io/api-spec: {}
+            f:kiali.io/api-type: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:version: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":9090,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+            k:{"port":20001,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/name: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2021-04-02T16:55:00Z"
+  name: kiali
+  namespace: istio-system
+spec:
+  ports:
+    - name: http
+      port: 20001
+      protocol: TCP
+      targetPort: 20001
+    - name: http-metrics
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  selector:
+    app.kubernetes.io/instance: kiali-server
+    app.kubernetes.io/name: kiali
+  sessionAffinity: None
+  type: NodePort
